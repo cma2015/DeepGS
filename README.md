@@ -10,8 +10,8 @@ of 2000 Iranian bread wheat (Triticum aestivum) lines from the wheat gene bank o
 Maize and Wheat Improvement Center (CIMMYT)
 <br>
 ## Version and download <br>
-* [Version 1.0](https://github.com/cma2015/DeepGS/blob/master/DeepGS_1.0.tar.gz) -First version release
-<br>
+* [Version 1.0](https://github.com/cma2015/DeepGS/blob/master/DeepGS_1.0.tar.gz) -First version release <br>
+
 ## Installation <br>
 ```R
 install.package("Download path/DeepGS_1.0.tar.gz")
@@ -31,4 +31,5 @@ install.package("Download path/DeepGS_1.0.tar.gz")
 ## Quick start 
 
 ## Ask Questions
+
 ## To do list
