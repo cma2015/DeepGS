@@ -19,8 +19,8 @@ install.package("Download path/DeepGS_1.0.tar.gz")
 <br>
 ## Depends
 * [R](https://www.r-project.org/) (>= 3.3.1) <br>
-* [mxnet](https://github.com/dmlc/mxnet) (>= 0.6)
-<br>
+* [mxnet](https://github.com/dmlc/mxnet) (>= 0.6)<br>
+
 ## Contents
 * Example data <br>
 * Trainning model  <br>
@@ -30,7 +30,7 @@ install.package("Download path/DeepGS_1.0.tar.gz")
 
 ## Quick start
 More details see [user manual](https://github.com/cma2015/DeepGS/blob/master/DeepGS.pdf)<br>
-### Data preparation and paramaters setting 
+#### Data preparation and paramaters setting 
 ```R
 ## load example data
 data(wheat_example)
@@ -55,7 +55,7 @@ cnnFrame <- list(conv_kernel =conv_kernel,conv_num_filter = conv_num_filter,
                  pool_stride = pool_stride,fullayer_num_hidden= fullayer_num_hidden,
                  fullayer_act_type = fullayer_act_type)
 ```
-### Training DeepGS model
+#### Training DeepGS model
 ```R
 trainGSmodel <- train_GSModel(trainMat = Markers[trainIdx,],trainPheno = y[trainIdx],
                               imageSize = "35*35", cnnFrame = cnnFrame,device_type = "cpu",
@@ -63,11 +63,11 @@ trainGSmodel <- train_GSModel(trainMat = Markers[trainIdx,],trainPheno = y[train
                               array_batch_size= 100,learning_rate = 0.01, momentum = 0,
                               wd = 0, randomseeds = 0,initializer_idx = 0.01)
 ```
-### Prediction 
+#### Prediction 
 ```R
 predscores <- predict_GSModel(GSModel = trainGSmodel,testMat = Markers[testIdx,],imageSize = "35*35")
 ```
-### Performance assement
+#### Performance assement
 ```R
 refer_value <- runif(100)
 pred_value <- sin(refer_value) + cos(refer_value)
