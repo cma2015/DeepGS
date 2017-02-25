@@ -29,7 +29,7 @@ install.package("Download path/DeepGS_1.0.tar.gz")
 * [User manual](https://github.com/cma2015/DeepGS/blob/master/DeepGS.pdf)<br>
 
 ## Quick start
-More details see [user manual](https://github.com/cma2015/DeepGS/blob/master/DeepGS.pdf)<br>
+More details please see [user manual](https://github.com/cma2015/DeepGS/blob/master/DeepGS.pdf)<br>
 #### Data preparation and paramaters setting 
 ```R
 ## load example data
