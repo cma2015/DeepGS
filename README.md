@@ -74,5 +74,5 @@ pred_value <- sin(refer_value) + cos(refer_value)
 meanNDCG(realScores = refer_value,predScores = pred_value, topK = 10)
 ```
 
-## Ask Questions
+## Ask questions
 Please use [DeepGS/issues](https://github.com/cma2015/DeepGS/issues) for how to use DeepGS and reporting bugs
