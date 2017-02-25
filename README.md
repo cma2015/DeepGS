@@ -1,6 +1,7 @@
 # ___DeepGS for genomic selection___ <br>
 ![](https://halobi.com/wp-content/uploads/2016/08/r_logo.png "R logo")
-![](https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ9QzjrA2qTP2LDqW14coedJZMry4JKbPel2eyJUqCgbcqaQePN "linux logo")
+![](https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSvCvZWbl922EJkjahQ5gmTpcvsYr3ujQBpMdyX-YG99vGWfTAmfw "linux logo")
+![](https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS3RzhXKSfXpWhWhvClckwi1Llj1j3HvjKpjvU8CQv4cje23TwS "windows logo")
 <br>
 The R package 'DeepGS' can be used to perform genomic selection (GS), which is a promising
 breeding strategy in plants and animals. DeepGS predicts phenotypes using genomewide
@@ -10,7 +11,7 @@ of 2000 Iranian bread wheat (Triticum aestivum) lines from the wheat gene bank o
 Maize and Wheat Improvement Center (CIMMYT).
 <br>
 ## Version and download <br>
-* [Version 1.0](https://github.com/cma2015/DeepGS/blob/master/DeepGS_1.0.tar.gz) -First version release <br>
+* [Version 1.0]https://github.com/cma2015/DeepGS/blob/master/DeepGS_1.0.tar.gz) -First version released on Feb, 15th, 2017<br>
 
 ## Installation <br>
 ```R
