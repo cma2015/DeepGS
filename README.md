@@ -1,6 +1,6 @@
 # ___DeepGS for genomic selection___ <br>
 ![](https://halobi.com/wp-content/uploads/2016/08/r_logo.png "R logo")
-![](http://img2016.itdadao.com/d/file/tech/2016/10/17/UBNRzqv.jpg "linux logo")
+![](https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTrA2MuCgVW37-Dj_HGRwpwcH-PZVwywhQY_XwlrmUxU9u_A8UBvg "linux logo")
 ![](https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQn9VvUviGCcrPgYqm1-C1gePlgyrvHWlMvHMlZ4Wr4jhPyh883 "windows logo")
 <br>
 The R package 'DeepGS' can be used to perform genomic selection (GS), which is a promising
