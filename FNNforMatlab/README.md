@@ -10,7 +10,7 @@ The implementation of Feedforward Multilayer Neural Network (FNN) model in matla
 
 ## Depends
 * [matlab](https://www.mathworks.com/products/matlab.html) (>= Version 2015) <br>
-* parpool for parallel(matlab version > 2015 )<br>
+* parpool for parallel (matlab version > 2015)<br>
 
 ## Contents
 * [Example data](https://github.com/cma2015/DeepGS/blob/master/FNNforMatlab/wheat.mat) <br>
