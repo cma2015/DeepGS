@@ -17,7 +17,6 @@ The implementation of Feedforward Multilayer Neural Network (FNN) model in matla
 * [Trainning model](https://github.com/cma2015/DeepGS/blob/master/FNNforMatlab/FNN_rate_model_train.m)  <br>
 
 ## Quick start
-#### Data preparation and paramaters setting 
 ```matlab
 %you may implement the FNN by the following steps
 %clear variables 
