@@ -39,15 +39,19 @@ end
 
 
 %find the best FNN model 
-function net=FNN_rate_model_train_max(a_train,b_train,hidden)
+function net=FNN_rate_model_train_max(a_train,b_train)
     an_train = a_train ;
     targetsTr_FNN = b_train ;
     clear net
     %constuct the FNN model
-    net = feedforwardnet(hidden);
+    net = feedforwardnet([18 32]);
     net.trainFcn = 'trainscg';
     net.trainParam.showWindow = false;
     net.trainParam.showCommandLine = false;
+    net.trainParam.epochs = 6000;
+    net.trainParam.max_fail = 600;    
+    net.divideParam.trainRatio=0.9;
+    net.divideParam.valRatio=0.1;    
     %initialize the FNN model
     net=init(net);
     %train the FNN model
