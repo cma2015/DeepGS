@@ -12,7 +12,10 @@ Maize and Wheat Improvement Center (CIMMYT).
 <br>
 ## Version and download <br>
 * [Version 1.0](https://github.com/cma2015/DeepGS/blob/master/DeepGS_1.0.tar.gz) -First version released on Feb, 15th, 2017<br>
-
+* [Version 1.1](https://github.com/cma2015/DeepGS/blob/master/DeepGS_1.1.tar.gz) -Second version released on Oct, 12th, 2017<br>
+1.'ELBPSO' funtion was added for ensemble learning based on particle swarm optimization (ELBPSO)
+2.update package document.
+3.function optimization for building deep learning Genomic selection prediction model.
 ## Installation <br>
 ```R
 install.package("Download path/DeepGS_1.0.tar.gz")
@@ -75,6 +78,37 @@ refer_value <- runif(100)
 pred_value <- sin(refer_value) + cos(refer_value)
 meanNDCG(realScores = refer_value,predScores = pred_value, topK = 10)
 ```
+#### ELBPSO
+```R
+## Not run
+# example for rrBLUP model
+# library(DeepGS)
+# library(rrBLUP)
+# data("wheat_example")
+# Markers <- wheat_example$Markers
+# y <- wheat_example$y
+# cvSampleList <- cvSampleIndex(length(y),10,1)
+## select one fold
+# cvIdx <- 1
+# trainIdx <- cvSampleList[[cvIdx]]$trainIdx
+# testIdx <- cvSampleList[[cvIdx]]$testIdx
+# trainMat = Markers[trainIdx,]
+# trainPheno = y[trainIdx]
+# testMat = Markers[testIdx,]
+# testPheno = y[testIdx]
+# rrBLUP_obj <-mixed.solve(trainPheno, Z=trainMat, K=NULL, SE = FALSE, return.Hinv=FALSE)
+# rrBLUP_pred <-  testMat %*% rrBLUP_obj$u + as.numeric(rrBLUP_obj$beta )
+## End not run 
+# calculating the weight of different training model by using their predict socres
+test_datapath <- system.file("exdata", "test_ELBPSO.RData",
+                             package = "DeepGS")
+load(test_datapath)
+weight <- ELBPSO(rep_times = 100,interation_times = 25,weight_dimension = 2,
+                 weight_min = 0,weight_max=1,rate_min = -0.01,rate_max = 0.01,
+                 paticle_number = 10, pred_matrix = train_predMat,IW = 1,
+                 AF1 = 2, AF2 = 2)
 
+new_pre <- (test_predMat % * % weight)/sum(weight)
+```
 ## Ask questions
 Please use [DeepGS/issues](https://github.com/cma2015/DeepGS/issues) for how to use DeepGS and reporting bugs.
