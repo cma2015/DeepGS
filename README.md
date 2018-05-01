@@ -25,7 +25,7 @@ install.package("Download path/DeepGS_1.2.tar.gz")
 
 ## Depends
 * [R](https://www.r-project.org/) (>= 3.3.1) <br>
-* [mxnet](https://github.com/dmlc/mxnet) (>= 0.6)<br>
+* [mxnet](https://mxnet.incubator.apache.org/install/index.html) (>= 0.6,please following the instructions for different system version ) <br>
 
 ## Contents
 * Example data <br>
