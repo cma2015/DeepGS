@@ -13,7 +13,7 @@ Maize and Wheat Improvement Center (CIMMYT).
 ## Version and download <br>
 * [Version 1.0](https://github.com/cma2015/DeepGS/blob/master/DeepGS_1.0.tar.gz) -First version released on Feb, 15th, 2017<br>
 * [Version 1.1](https://github.com/cma2015/DeepGS/blob/master/DeepGS_1.1.tar.gz) -Second version released on Oct, 12th, 2017<br>
-* [Version 1.2](https://github.com/cma2015/DeepGS/blob/master/DeepGS_1.2.tar.gz) -Second version released on Oct, 12th, 2018<br>
+* [Version 1.2](https://github.com/cma2015/DeepGS/blob/master/DeepGS_1.2.tar.gz) -Third version released on Oct, 12th, 2018<br>
 1.'ELBPSO' funtion was added for ensemble learning based on particle swarm optimization (ELBPSO) <br>
 2.Update package document <br>
 3.Function optimization for building deep learning Genomic selection prediction model <br>
@@ -25,7 +25,7 @@ install.package("Download path/DeepGS_1.2.tar.gz")
 
 ## Depends
 * [R](https://www.r-project.org/) (>= 3.3.1) <br>
-* [mxnet](https://mxnet.incubator.apache.org/install/index.html) (>= 0.6,please following the instructions for different system version ) <br>
+* [mxnet](https://mxnet.incubator.apache.org/install/index.html) (>= 0.9.3,please following the instructions for different system version ) <br>
 
 ## Contents
 * Example data <br>
