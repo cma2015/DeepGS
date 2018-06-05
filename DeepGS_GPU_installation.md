@@ -129,3 +129,5 @@ trainGSmodel <- train_deepGSModel(trainMat = trainMat,trainPheno = trainPheno,
                 num_round = 6000,array_batch_size= 30,learning_rate = 0.01,
                 momentum = 0.5,wd = 0.00001, randomseeds = 0,initializer_idx = 0.01)
  ```
+### Contact
+Please use [DeepGS/issues](https://github.com/cma2015/DeepGS/issues) for how to use DeepGS and reporting bugs.
