@@ -87,12 +87,13 @@ nvidia-docker run —runtime=nvidia —rm nvidia/cuda nvidia-smi # If nvidia-doc
 ```bash
 docker pull malab/deepgs_gpu
 # Quickly start for deepgs_gpu
-docker run --runtime=nvidia malab/deepgs_gpu Rdata(wheat_example)
+docker run --runtime=nvidia malab/deepgs_gpu R
 ```
 
 ### Step 6: Running a training exmaple of DeepGS
  ```R
- Markers <- wheat_example$Markers
+data(wheat_example)
+Markers <- wheat_example$Markers
 y <- wheat_example$y
 cvSampleList <- cvSampleIndex(length(y),10,1)
 # cross validation set
