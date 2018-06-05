@@ -17,26 +17,50 @@ Maize and Wheat Improvement Center (CIMMYT).
 1.'ELBPSO' funtion was added for ensemble learning based on particle swarm optimization (ELBPSO) <br>
 2.Update package document <br>
 3.Function optimization for building deep learning Genomic selection prediction model <br>
-## Installation <br>
-```R
-install.package("Download path/DeepGS_1.2.tar.gz")
+## DeepGS-CPU Installation ##
+### Docker installation and start ###
+#### For Windows (Test on Windows 10 Enterprise version): ####
+* Download [Docker](<https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe>) for windows </br>
+* Double click the EXE file to open it;
+* Follow the wizard instruction and complete installation;
+* Search docker, select ___Docker for Windows___ in the search results and clickit.
+#### For Mac OS X (Test on macOS Sierra version 10.12.6 and macOS High Sierra version 10.13.3): ####
+* Download [Docker](<https://download.docker.com/mac/stable/Docker.dmg>) for Mac os <br>
+* Double click the DMG file to open it;
+* Drag the docker into Applications and complete installation;
+* Start docker from Launchpad by click it.
+#### For Ubuntu (Test on Ubuntu 14.04 LTS and Ubuntu 16.04 LTS): ####
+* Go to [Docker](<https://download.docker.com/linux/ubuntu/dists/>), choose your Ubuntuversion, browse to ___pool/stable___ and choose ___amd64, armhf, ppc64el or s390x.____ Download the ___DEB___ file for the Docker version you want to install;
+* Install Docker, supposing that the DEB file is download into following path:___"/home/docker-ce<version-XXX>~ubuntu_amd64.deb"___ </br>
+```bash
+$ sudo dpkg -i /home/docker-ce<version-XXX>~ubuntu_amd64.deb      
+$ sudo apt-get install -f
 ```
-<br>
+ ### Verify if Docker is installed correctly ### 
+----------------------------------------
+   Once Docker installation is completed, we can run ____hello-world____ image to verify if Docker is installed correctly. Open terminal in Mac OS X and Linux operating system and open CMD for Windows operating system, then type the following command:
+```bash
+$ docker run hello-world
+```
+   **<font color =red>Note</font>:** root permission is required for Linux operating system.
+   **<font color =red>Note</font>:** considering that differences between different computers may exist, please refer to [official installation manual](https://docs.docker.com/install) if instructions above don’t work.
+### DeepGS-CPU Docker image installation and quickly start ### 
 
-## Depends
-* [R](https://www.r-project.org/) (>= 3.3.1) <br>
-* [mxnet](https://mxnet.incubator.apache.org/install/index.html) (>= 0.9.3,please following the instructions for different system version ) <br>
+```bash
+$ docker pull malab/deepgs_cpu
+$ docker run -it -v /host directory of dataset:/home/data malab/deepgs_cpu R  
+```
+**Note:** Supposing that users’ private dataset is located in directory ___`/home/test`____, then change the words above (____`/host directory of dataset`____) to host directory (____`/home/test`____)  
+```R
+library(DeepGS)  
+setwd("/home/data/")  
+```
+**Important:** the directory (____`/home/data/`____) is a virtual directory in PEA Docker image. In order to use private dataset more easily, the parameter “-v” is strongly recommended to mount host directory of dataset to PEA image.  
 
-## Contents
-* Example data <br>
-* Trainning model  <br>
-* Performance assement <br>
-* Cross validation <br>
-* [User manual](https://github.com/cma2015/DeepGS/blob/master/DeepGS.pdf)<br>
+## DeepGS-GPU Installation ##
+The details of DeepGS installation are available at: https://github.com/cma2015/DeepGS/blob/master/DeepGS_GPU_installation.md
 
-## Quick start
-More details please see [user manual](https://github.com/cma2015/DeepGS/blob/master/DeepGS.pdf)<br>
-#### Data preparation and paramaters setting 
+## Data preparation and paramaters setting 
 ```R
 data(wheat_example)
 Markers <- wheat_example$Markers
@@ -72,7 +96,7 @@ cnnFrame <- list(conv_kernel =conv_kernel,conv_num_filter = conv_num_filter,
 markerImage = paste0("1*",ncol(trainMat))
 
 ```
-#### Training DeepGS model
+## Training DeepGS model
 ```R
 trainGSmodel <- train_deepGSModel(trainMat = trainMat,trainPheno = trainPheno,
                 validMat = validMat,validPheno = validPheno, markerImage = markerImage, 
@@ -80,18 +104,18 @@ trainGSmodel <- train_deepGSModel(trainMat = trainMat,trainPheno = trainPheno,
                 num_round = 6000,array_batch_size= 30,learning_rate = 0.01,
                 momentum = 0.5,wd = 0.00001, randomseeds = 0,initializer_idx = 0.01)
 ```
-#### Prediction 
+## Prediction 
 ```R
 predscores <- predict_GSModel(GSModel = trainGSmodel,testMat = Markers[testIdx,],
               markerImage = markerImage )
 ```
-#### Performance assement
+## Performance evaluation
 ```R
 refer_value <- runif(100)
 pred_value <- sin(refer_value) + cos(refer_value)
 meanNDCG(realScores = refer_value,predScores = pred_value, topK = 10)
 ```
-#### ELBPSO
+## ELBPSO
 ```R
 ## Not run
 # example for rrBLUP model
