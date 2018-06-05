@@ -55,7 +55,7 @@ $ docker run -it -v /host directory of dataset:/home/data malab/deepgs_cpu R
 library(DeepGS)  
 setwd("/home/data/")  
 ```
-**Important:** the directory (____`/home/data/`____) is a virtual directory in PEA Docker image. In order to use private dataset more easily, the parameter “-v” is strongly recommended to mount host directory of dataset to PEA image.  
+**Important:** the directory (____`/home/data/`____) is a virtual directory in DeepGS Docker image. In order to use private dataset more easily, the parameter “-v” is strongly recommended to mount host directory of dataset to DeepGS image.  
 
 ## DeepGS-GPU Installation ##
 The details of DeepGS installation are available at: https://github.com/cma2015/DeepGS/blob/master/DeepGS_GPU_installation.md
