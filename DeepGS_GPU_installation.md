@@ -1,4 +1,5 @@
-## Nvidia-docker installation
+## DeepGS_GPU Docker image installation
+
 ### System requirements
 * Ubuntu (>= 16.04)
 
