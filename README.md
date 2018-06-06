@@ -102,7 +102,8 @@ trainGSmodel <- train_deepGSModel(trainMat = trainMat,trainPheno = trainPheno,
                 validMat = validMat,validPheno = validPheno, markerImage = markerImage, 
                 cnnFrame = cnnFrame,device_type = "cpu",gpuNum = 1, eval_metric = "mae",
                 num_round = 6000,array_batch_size= 30,learning_rate = 0.01,
-                momentum = 0.5,wd = 0.00001, randomseeds = 0,initializer_idx = 0.01)
+                momentum = 0.5,wd = 0.00001, randomseeds = 0,initializer_idx = 0.01,
+                verbose =TRUE)
 ```
 ## Prediction 
 ```R
