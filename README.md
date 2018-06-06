@@ -145,7 +145,7 @@ weight <- ELBPSO(rep_times = 100,interation_times = 25,weight_dimension = 2,
                  paticle_number = 10, pred_matrix = train_predMat,IW = 1,
                  AF1 = 2, AF2 = 2)
 
-new_pre <- (test_predMat % * % weight)/sum(weight)
+new_pre <- (test_predMat %*% weight)/sum(weight)
 ```
 ## Ask questions
 Please use [DeepGS/issues](https://github.com/cma2015/DeepGS/issues) for how to use DeepGS and reporting bugs.
