@@ -7,7 +7,7 @@ The R package 'DeepGS' can be used to perform genomic selection (GS), which is a
 breeding strategy in plants and animals. DeepGS predicts phenotypes using genomewide
 genotypic markers with an advanced machine learning technique (deep learning). The effectiveness
 of DeepGS has been demonstrated in predicting eight phenotypic traits on a population
-of 2000 Iranian bread wheat (Triticum aestivum) lines from the wheat gene bank of the International
+of 2000 Iranian bread wheat (_Triticum aestivum_) lines from the wheat gene bank of the International
 Maize and Wheat Improvement Center (CIMMYT).
 <br>
 ## Version and download <br>
@@ -114,7 +114,7 @@ predscores <- predict_GSModel(GSModel = trainGSmodel,testMat = Markers[testIdx,]
 ```R
 refer_value <- runif(100)
 pred_value <- sin(refer_value) + cos(refer_value)
-meanNDCG(realScores = refer_value,predScores = pred_value, topK = 10)
+meanNDCG(realScores = refer_value,predScores = pred_value, topAlpha = 10)
 ```
 ## ELBPSO
 ```R
