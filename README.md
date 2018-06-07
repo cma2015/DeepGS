@@ -30,8 +30,8 @@ Maize and Wheat Improvement Center (CIMMYT).
 * Drag the docker into Applications and complete installation;
 * Start docker from Launchpad by click it.
 #### For Ubuntu (Test on Ubuntu 14.04 LTS and Ubuntu 16.04 LTS): ####
-* Go to [Docker](<https://download.docker.com/linux/ubuntu/dists/>), choose your Ubuntuversion, browse to ___pool/stable___ and choose ___amd64, armhf, ppc64el or s390x.____ Download the ___DEB___ file for the Docker version you want to install;
-* Install Docker, supposing that the DEB file is download into following path:___"/home/docker-ce<version-XXX>~ubuntu_amd64.deb"___ </br>
+* Go to [Docker](<https://download.docker.com/linux/ubuntu/dists/>), choose your Ubuntuversion, browse to ___pool/stable___ and choose ___amd64, armhf, ppc64el or s390x.___ Download the ___DEB___ file for the Docker version you want to install;
+* Install Docker, supposing that the DEB file is download into following path:_"/home/docker-ce<version-XXX>~ubuntu_amd64.deb"_ </br>
 ```bash
 $ sudo dpkg -i /home/docker-ce<version-XXX>~ubuntu_amd64.deb      
 $ sudo apt-get install -f
@@ -50,7 +50,7 @@ $ docker run hello-world
 $ docker pull malab/deepgs_cpu
 $ docker run -it -v /host directory of dataset:/home/data malab/deepgs_cpu R  
 ```
-**Note:** Supposing that users’ private dataset is located in directory ___`/home/test`____, then change the words above (____`/host directory of dataset`____) to host directory (____`/home/test`____)  
+**Note:** Supposing that users’ private dataset is located in directory __`/home/test`__, then change the words above (_`/host directory of dataset`_) to host directory (_`/home/test`_)  
 ```R
 library(DeepGS)  
 setwd("/home/data/")  
