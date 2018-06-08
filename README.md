@@ -119,6 +119,8 @@ meanNDCG(realScores = refer_value,predScores = pred_value, topAlpha = 10)
 ## ELBPSO
 ```R
 # Not run
+# library(DeepGS)
+# library(rrBLUP)
 # data("wheat_example")
 # Markers <- wheat_example$Markers
 # y <- wheat_example$y
