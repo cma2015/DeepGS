@@ -118,35 +118,74 @@ meanNDCG(realScores = refer_value,predScores = pred_value, topAlpha = 10)
 ```
 ## ELBPSO
 ```R
-## Not run
-# example for rrBLUP model
-# library(DeepGS)
-# library(rrBLUP)
+# Not run
 # data("wheat_example")
 # Markers <- wheat_example$Markers
 # y <- wheat_example$y
 # cvSampleList <- cvSampleIndex(length(y),10,1)
-## select one fold
+# # select one fold
 # cvIdx <- 1
 # trainIdx <- cvSampleList[[cvIdx]]$trainIdx
 # testIdx <- cvSampleList[[cvIdx]]$testIdx
 # trainMat = Markers[trainIdx,]
 # trainPheno = y[trainIdx]
+# validIdx <- sample(1:length(trainIdx),floor(length(trainIdx)*0.1))
+# validMat <- trainMat[validIdx,]
+# validPheno <- trainPheno[validIdx]
 # testMat = Markers[testIdx,]
 # testPheno = y[testIdx]
+# # design DeepGS architecture
+# conv_kernel <- c("1*18") # convolution kernels (fileter shape)
+# conv_stride <- c("1*1")
+# conv_num_filter <- c(8)  # number of filters
+# pool_act_type <- c("relu") # active function for next pool
+# pool_type <- c("max") # max pooling shape
+# pool_kernel <- c("1*4") # pooling shape
+# pool_stride <- c("1*4") # number of pool kernerls
+# fullayer_num_hidden <- c(32,1)
+# fullayer_act_type <- c("sigmoid")
+# drop_float <- c(0.2,0.1,0.05)
+# cnnFrame <- list(conv_kernel =conv_kernel,conv_num_filter = conv_num_filter,
+#                  conv_stride = conv_stride,pool_act_type = pool_act_type,
+#                  pool_type = pool_type,pool_kernel =pool_kernel,
+#                  pool_stride = pool_stride,fullayer_num_hidden= fullayer_num_hidden,
+#                  fullayer_act_type = fullayer_act_type,drop_float = drop_float)
+# 
+# markerImage = paste0("1*",ncol(trainMat))
+# # train DeepGS model
+# DeepGS_obj <- train_deepGSModel(trainMat = trainMat,trainPheno = trainPheno,
+#                                 validMat = validMat,validPheno = validPheno, markerImage = markerImage,
+#                                 cnnFrame = cnnFrame,device_type = "cpu",gpuNum = 1, eval_metric = "mae",
+#                                 num_round = 6000,array_batch_size= 30,learning_rate = 0.01,
+#                                 momentum = 0.5,wd = 0.00001, randomseeds = 0,initializer_idx = 0.01,
+#                                 verbose =TRUE)
+# # make predictions based on the trained model
+# DeepGS_pred <- predict_GSModel(GSModel = DeepGS_obj,testMat = Markers[testIdx,],
+#                                markerImage = markerImage )
+# # train RR-BLUP model
 # rrBLUP_obj <-mixed.solve(trainPheno, Z=trainMat, K=NULL, SE = FALSE, return.Hinv=FALSE)
+# # make predictions based on the trained model
 # rrBLUP_pred <-  testMat %*% rrBLUP_obj$u + as.numeric(rrBLUP_obj$beta )
+# # prepare the prediction matrix
+# test_predMat <- cbind(t(DeepGS_pred), rrBLUP_pred)
+# train_predMat <- cbind(testPheno, t(DeepGS_pred), rrBLUP_pred)
+# colnames(train_predMat) <- c("real", "DeepGS", "RR-BLUP")
 ## End not run 
 # calculating the weight of different training model by using their predict socres
+
 test_datapath <- system.file("exdata", "test_ELBPSO.RData",
                              package = "DeepGS")
 load(test_datapath)
+
 weight <- ELBPSO(rep_times = 100,interation_times = 25,weight_dimension = 2,
                  weight_min = 0,weight_max=1,rate_min = -0.01,rate_max = 0.01,
                  paticle_number = 10, pred_matrix = train_predMat,IW = 1,
                  AF1 = 2, AF2 = 2)
 
-new_pre <- (test_predMat %*% weight)/sum(weight)
+ensemble_pred <- (test_predMat %*% weight)/sum(weight)
+predMat <- cbind(testPheno, t(DeepGS_pred), rrBLUP_pred, ensemble_pred)
+colnames(predMat) <- c("real", "DeepGS", "RR-BLUP", "ensemble")
+cor(predMat)
 ```
 ## Ask questions
 Please use [DeepGS/issues](https://github.com/cma2015/DeepGS/issues) for how to use DeepGS and reporting bugs.
