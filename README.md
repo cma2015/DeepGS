@@ -191,3 +191,5 @@ cor(predMat)
 ```
 ## Ask questions
 Please use [DeepGS/issues](https://github.com/cma2015/DeepGS/issues) for how to use DeepGS and reporting bugs.
+## Citation
+Ma, W., Qiu, Z., Song, J., Li, J., Cheng, Q., Zhai, J., & Ma, C. (2018). [**A deep convolutional neural network approach for predicting phenotypes from genotypes.**](https://link.springer.com/article/10.1007/s00425-018-2976-9) Planta, 1-12.
