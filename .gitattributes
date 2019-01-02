@@ -1,0 +1,3 @@
+*.js linguist-language=R
+*.css linguist-language=R
+*.html linguist-language=R
